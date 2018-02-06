@@ -18,7 +18,7 @@ class GameManager{
 
     private lateinit var mainCircle: MainCircle
     private lateinit var circles: ArrayList<EnemyCircle>
-    private lateinit var canvasView: CanvasView
+    private var canvasView: CanvasView
 
 
     constructor(canvasView: CanvasView, w: Int, h: Int){
@@ -34,7 +34,6 @@ class GameManager{
     }
 
     private fun initEnemyCircles() {
-        var mainCircleArea: SimpleCircle = mainCircle.getCircleArea()
         circles = ArrayList<EnemyCircle>()
         for (i in 0..MAX_CIRCLES){
             var enemyCircle: EnemyCircle
@@ -76,15 +75,18 @@ class GameManager{
 
     private fun checkCollision() {
         var circleForDel: SimpleCircle? = null
-        for (circle:SimpleCircle in circles){
-            if (mainCircle.isIntersect(circle)){
-                mainCircle.growRadius(circle)
-                circleForDel = circle
-                calculateAndSetCirclesColor()
-                break
-            }else{
-                gameEnd("YOU LOSE")
-                return
+        for (circle:EnemyCircle in circles){
+            if (mainCircle.isIntersect(circle)) {
+                if (circle.isSmallerThan(mainCircle)) {
+
+                    mainCircle.growRadius(circle)
+                    circleForDel = circle
+                    calculateAndSetCirclesColor()
+                    break
+                } else {
+                    gameEnd("YOU LOSE")
+                    return
+                }
             }
         }
         if (circleForDel != null){
@@ -98,6 +100,7 @@ class GameManager{
     private fun gameEnd(s: String) {
         canvasView.showMessage(s)
         mainCircle.initRadius()
+        initEnemyCircles()
         canvasView.redraw()
     }
 

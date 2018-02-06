@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/home/skender/AndroidProject/Kotlin/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+        "outputFile": "/home/alexander/AndroidStudioProjects/Kotlin/PortingGameToKotlin/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 163
                 },
                 "from": {
-                    "file": "/home/skender/.android/build-cache/e69a80fd2ff1050fc481a9c28f42e3293dd3cff4/output/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "file": "/home/alexander/.android/build-cache/3d00e4b13ed757cf823358f89c4bc55a7c07ddf5/output/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

@@ -1,4 +1,4 @@
-#Tue Feb 06 00:33:10 MSK 2018
-base.0=/home/skender/AndroidProject/Kotlin/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+#Tue Feb 06 11:22:15 MSK 2018
+base.0=/home/alexander/AndroidStudioProjects/Kotlin/PortingGameToKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
-file.0=/home/skender/AndroidProject/Kotlin/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
+file.0=/home/alexander/AndroidStudioProjects/Kotlin/PortingGameToKotlin/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

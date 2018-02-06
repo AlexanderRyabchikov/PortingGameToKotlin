@@ -25,9 +25,9 @@ class CanvasView : View, ICanvasView{
 
     private lateinit var paint: Paint
     private lateinit var canvas: Canvas
-    private lateinit var toast: Toast
+    private var toast: Toast? = null
 
-    var gestureDetector:GestureDetector
+    private var gestureDetector:GestureDetector
 
     private var gameManager: GameManager
 
@@ -44,21 +44,21 @@ class CanvasView : View, ICanvasView{
 
     override fun showMessage(text: String) {
         if(toast != null){
-            toast.cancel()
+            toast!!.cancel()
         }
 
         toast = Toast.makeText(context, text, Toast.LENGTH_SHORT)
-        toast.show()
+        toast!!.show()
     }
 
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
-        initWidthAndHeight(context);
+        initWidthAndHeight(context)
         gameManager = GameManager(this, Width, Heigth)
         gestureDetector = GestureDetector(context, GestureListener(context))
         initPaint()
     }
 
-    fun initPaint(){
+    private fun initPaint(){
         paint = Paint()
         paint.isAntiAlias = true
         paint.style = Paint.Style.FILL
@@ -69,14 +69,14 @@ class CanvasView : View, ICanvasView{
         var windowManager: WindowManager =
                 context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
 
-        var displayMetrics: DisplayMetrics = DisplayMetrics()
+        var displayMetrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         Width = displayMetrics.widthPixels
         Heigth = displayMetrics.heightPixels
 
     }
 
-    override protected fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         this.canvas = canvas!!
         gameManager.onDraw()
@@ -89,7 +89,7 @@ class CanvasView : View, ICanvasView{
             gameManager.onTouchEvent(x, y)
         }
         invalidate()
-        return super.onTouchEvent(event)
+        return gestureDetector.onTouchEvent(event)
 
     }
 }

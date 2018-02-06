@@ -1,6 +1,7 @@
 package com.example.skender.kotlin
 
 import android.graphics.Color
+import android.util.Log
 import java.util.*
 
 /**
@@ -17,7 +18,7 @@ class EnemyCircle(x: Int, y: Int, radius: Int,private  var dx: Int, private var 
 
         fun getRandomCircle():EnemyCircle{
 
-            var random: Random = Random()
+            val random = Random()
             var x: Int = random.nextInt(GameManager.getWidth())
             var y: Int = random.nextInt(GameManager.getHeigth())
             var radius: Int = FROM_RADIUS + random.nextInt(TO_RADIUS - FROM_RADIUS)
@@ -37,12 +38,14 @@ class EnemyCircle(x: Int, y: Int, radius: Int,private  var dx: Int, private var 
         setColor(ENEMY_COLOUR)
     }
 
-    private fun isSmallerThan(circle: SimpleCircle): Boolean = radius < circle.radius
+    fun isSmallerThan(circle: SimpleCircle): Boolean = radius < circle.radius
 
     fun moveOnStep(){
-        x+=dx;
-        y+=dy;
-        checkBounds();
+
+        Log.d("SkEDER", "move on step")
+        x += dx;
+        y += dy;
+        checkBounds()
 
     }
 
