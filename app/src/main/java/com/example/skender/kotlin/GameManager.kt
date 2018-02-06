@@ -30,7 +30,7 @@ class GameManager{
     }
 
     private fun initMainCircle() {
-
+        mainCircle = MainCircle(getWidth() / 2, getHeigth() / 2)
     }
 
     private fun initEnemyCircles() {
